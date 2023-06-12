@@ -1,13 +1,12 @@
 //+build wireinject
 
-package main
+package app
 
 import (
 	"github.com/google/wire"
-	"github.com/hephhay/go-graphql/app"
-	"github.com/hephhay/go-graphql/app/controller"
-	"github.com/hephhay/go-graphql/src/repository"
-	"github.com/hephhay/go-graphql/src/service"
+	"github.com/hephhay/go-graphql/internal/app"
+	"github.com/hephhay/go-graphql/internal/repository"
+	"github.com/hephhay/go-graphql/internal/service"
 )
 
 func InitializeApp(appCfg *config.AppCfg, dbCfg *config.DBCfg) (*Application, error) {
@@ -15,7 +14,6 @@ func InitializeApp(appCfg *config.AppCfg, dbCfg *config.DBCfg) (*Application, er
 		app.NewDBConnection,
 		repository.NewUserRepository,
 		service.NewUserService,
-		controller.NewUserController,
 		app.NewRoute,
 		NewApplication,
 	)
