@@ -1,11 +1,9 @@
 package app
 
 import (
-	"github.com/hephhay/go-graphql/src/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"log"
-	"github.com/hephhay/go-graphql/configs"
 )
 
 func NewDBConnection(configs *configs.DBCfg) *gorm.DB {
