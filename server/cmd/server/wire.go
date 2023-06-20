@@ -8,7 +8,6 @@ import (
 	"github.com/hephhay/go-graphql/internal/app"
 	"github.com/hephhay/go-graphql/internal/repository"
 	"github.com/hephhay/go-graphql/internal/service"
-	"github.com/hephhay/go-graphql/internal/resolver"
 )
 
 func InitializeApp(dbCfg *config.DBCfg) (*Application, error) {
@@ -16,7 +15,6 @@ func InitializeApp(dbCfg *config.DBCfg) (*Application, error) {
 		app.NewDBConnection,
 		repository.NewUserRepository,
 		service.NewUserService,
-		resolver.NewUserResolver,
 		app.NewRoute,
 		NewApplication,
 	)
