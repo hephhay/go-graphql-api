@@ -10,6 +10,7 @@ import (
 	"github.com/hephhay/go-graphql/config"
 	"github.com/hephhay/go-graphql/internal/app"
 	"github.com/hephhay/go-graphql/internal/repository"
+	"github.com/hephhay/go-graphql/internal/resolver"
 	"github.com/hephhay/go-graphql/internal/service"
 )
 
@@ -19,7 +20,8 @@ func InitializeApp(dbCfg *config.DBCfg) (*Application, error) {
 	db := app.NewDBConnection(dbCfg)
 	userRepository := repository.NewUserRepository(db)
 	userService := service.NewUserService(userRepository)
-	engine := app.NewRoute(userService)
+	resolverResolver := resolver.NewResolver(userService)
+	engine := app.NewRoute(resolverResolver)
 	application := NewApplication(engine)
 	return application, nil
 }
