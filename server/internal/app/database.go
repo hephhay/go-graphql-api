@@ -3,8 +3,8 @@ package app
 import (
 	"log"
 
-	"github.com/hephhay/go-graphql/config"
-	"github.com/hephhay/go-graphql/internal/model"
+	"github.com/hephhay/go-graphql-api/config"
+	"github.com/hephhay/go-graphql-api/internal/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
